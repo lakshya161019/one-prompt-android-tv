@@ -9,6 +9,8 @@ This repository is self-contained: it includes the one-shot task prompt plus com
 3. The prompt tells the agent to extract `cleanyourtv-core.zip` and `cleanyourtv-reference.zip` into the repository root before using any device tools.
 4. Keep the TV nearby. Follow the prompt's questions, enable ADB only when asked, accept the on-screen debugging prompt, and inspect screenshots and proposed package changes before proceeding.
 
+New to this? Start with the narrated [beginner video tutorial](tutorial/one-prompt-android-tv-beginner.webm) and its [beginner guide](tutorial/README.md).
+
 This is for Android TV / Google TV. It does not apply to Samsung Tizen, LG webOS, Roku, VIDAA, SmartCast, or Fire TV. See <https://cleanyour.tv/not-android> for non-Android sets.
 
 ## Safety
