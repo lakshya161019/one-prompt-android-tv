@@ -4,8 +4,11 @@ Paste this into Claude Code (or another coding assistant with shell access) on a
 on the same Wi-Fi as the TV. Works on Android TV / Google TV sets (Xiaomi, TCL, Hisense, Sony,
 OnePlus, Realme, Nvidia Shield and most others). It will not work on Samsung Tizen, LG webOS or
 Fire TV. For Samsung, LG, Roku and other non-Android TVs, use https://cleanyour.tv/not-android instead:
-it turns off the tracking with the remote. If you cloned this repo, mention that: the assistant can reuse `tools/` and `launcher/`
-instead of writing them from scratch, and only needs to edit `launcher/.../values/config.xml`.
+it turns off the tracking with the remote. This repository includes the guarded tools, device notes,
+examples and reference launcher in two ZIP bundles. Extract them at the start of the task and reuse
+those files instead of writing safety tools or a launcher from scratch. For a supported TV, follow
+its exact `examples/` notes; change only the TV's `launcher/.../values/config.xml` or an existing
+theme unless you have a clear, user-approved reason.
 
 Before you start, on the TV: Settings → Device Preferences → About → press OK on "Build" 7 times,
 then go back → Developer options → turn on USB debugging (and Network/ADB debugging if your TV
@@ -18,10 +21,17 @@ adapter on that port can drop the same way, so plan to do the whole session in o
 I want to debloat my Android TV and replace its launcher with a clean Apple TV style home screen.
 My TV model is: <MODEL NAME HERE>. Work on the real device, step by step, and verify everything you
 do with screenshots pulled from the TV. Ask me before anything that depends on my preferences.
-Where these steps name a file under `tools/`, `docs/` or `examples/` that is not in your working
-folder, you are running without this repo: clone it first with
-`git clone https://github.com/Gathin23/cleanyourtv` and work from there, so `tools/disable.sh` and the
-rest keep their safety checks, rather than stopping or writing your own.
+This repository is self-contained. It contains `cleanyourtv-core.zip` (the guarded tools, launcher
+and themes) and `cleanyourtv-reference.zip` (the device examples and documentation). Before any TV
+changes, check whether `tools/tv.py`, `tools/disable.sh`, `docs/` and `examples/` exist in the
+working folder. If they do not, extract both ZIPs into the repository root. On Windows use
+`Expand-Archive -LiteralPath .\cleanyourtv-core.zip -DestinationPath . -Force` and then the same
+command for `cleanyourtv-reference.zip`. On macOS/Linux use `unzip -o cleanyourtv-core.zip -d .`
+and `unzip -o cleanyourtv-reference.zip -d .`. Confirm the paths exist after extraction. If the
+ZIPs are missing, clone this repository with
+`git clone https://github.com/lakshya161019/one-prompt-android-tv` and work from its root. If the
+bundles are missing or corrupt, stop and ask; do not substitute a different project or write your
+own safety scripts.
 
 Connect
 - Find the TV on my network (hostname, ARP table, or ask me for the IP) and connect over ADB on port 5555.
@@ -233,3 +243,4 @@ Verify
 
 Expect to answer three or four checklist questions (which apps you use, the dock size and app order,
 whether to keep the voice assistant, Chromecast and firmware updates). Everything is reversible.
+
